@@ -3,48 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>RGB slider</title>
     <style>
       .color {
         background-color: rgb(0, 0, 0);
       }
+
+      .color2 {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .rgb {
+        margin-left: 40%;
+      }
     </style>
   </head>
   <body>
-    <div id="colorbox" class="color" style="height: 100px; width: 200px">
-      Color
-    </div>
-    <input
-      type="range"
-      min="0"
-      max="255"
-      name="red"
-      id="red"
-      oninput="updateColor()"
-    />
-    <label for="red">Red</label>
-    <span id="red_value"></span>
-    <input
-      type="range"
-      min="0"
-      max="255"
-      name="blue"
-      id="blue"
-      oninput="updateColor()"
-    />
-    <label for="blue">Blue</label>
-    <span id="blue_value"></span>
-    <input
-      type="range"
-      min="0"
-      max="255"
-      name="green"
-      id="green"
-      oninput="updateColor()"
-    />
-    <label for="green">Green</label>
-    <span id="green_value"></span>
+    <h1>RGB Slider</h1>
 
+    <div class="rgb">
+      <h2>RGB:</h2>
+
+      <div id="colorbox" class="color" style="height: 100px; width: 200px">
+        Color
+      </div>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        name="red"
+        id="red"
+        oninput="updateColor()"
+      />
+      <label for="red">Red</label>
+      <span id="red_value"></span>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        name="blue"
+        id="blue"
+        oninput="updateColor()"
+      />
+      <label for="blue">Blue</label>
+      <span id="blue_value"></span>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        name="green"
+        id="green"
+        oninput="updateColor()"
+      />
+      <label for="green">Green</label>
+      <span id="green_value"></span>
+    </div>
+    <div class="rgba">
+      <h2>RGBA</h2>
+      <div class="color" id="colorBox2" style="height: 100px; width: 200px">
+        COlor
+      </div>
+      <input
+        type="range"
+        name="red2"
+        id="red2"
+        min="0"
+        max="255"
+        oninput="updateColorAgain()"
+      />
+      <label for="red2">Red</label>
+      <span id="red_value2"></span>
+      <input
+        type="range"
+        name="blue2"
+        id="blue2"
+        min="0"
+        max="255"
+        oninput="updateColorAgain()"
+      />
+      <label for="blue2">Blue</label>
+      <span id="blue_value2"></span>
+      <input
+        type="range"
+        name="green2"
+        id="green2"
+        min="0"
+        max="255"
+        oninput="updateColorAgain()"
+      />
+      <label for="green2">Green</label>
+      <span id="green_value2"></span>
+      <input
+        type="range"
+        name="opacity2"
+        id="opacity2"
+        min="0"
+        max="1"
+        step="0.1"
+        oninput="updateColorAgain()"
+      />
+      <label for="opacity2">Opacity</label>
+      <span id="opacity"></span>
+    </div>
     <script>
       function updateColor() {
         const red = document.getElementById("red").value;
@@ -58,6 +118,23 @@
         blueValue.textContent = blue;
         const greenValue = document.getElementById("green_value");
         greenValue.textContent = green;
+      }
+
+      function updateColorAgain() {
+        const red = document.getElementById("red2").value;
+        const blue = document.getElementById("blue2").value;
+        const green = document.getElementById("green2").value;
+        const opacity = document.getElementById("opacity2").value;
+        const colorBox = document.getElementById("colorbox2");
+        colorBox2.style.backgroundColor = `rgba(${red}, ${blue}, ${green}, ${opacity})`;
+        const redValue = document.getElementById("red_value2");
+        redValue.textContent = red;
+        const blueValue = document.getElementById("blue_value2");
+        blueValue.textContent = blue;
+        const greenValue = document.getElementById("green_value2");
+        greenValue.textContent = green;
+        const opacityValue = document.getElementById("opacity");
+        opacityValue.textContent = opacity;
       }
     </script>
   </body>
