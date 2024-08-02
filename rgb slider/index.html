@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .color {
+        background-color: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="colorbox" class="color" style="height: 100px; width: 200px">
+      Color
+    </div>
+    <input
+      type="range"
+      min="0"
+      max="255"
+      name="red"
+      id="red"
+      oninput="updateColor()"
+    />
+    <label for="red">Red</label>
+    <span id="red_value"></span>
+    <input
+      type="range"
+      min="0"
+      max="255"
+      name="blue"
+      id="blue"
+      oninput="updateColor()"
+    />
+    <label for="blue">Blue</label>
+    <span id="blue_value"></span>
+    <input
+      type="range"
+      min="0"
+      max="255"
+      name="green"
+      id="green"
+      oninput="updateColor()"
+    />
+    <label for="green">Green</label>
+    <span id="green_value"></span>
+
+    <script>
+      function updateColor() {
+        const red = document.getElementById("red").value;
+        const blue = document.getElementById("blue").value;
+        const green = document.getElementById("green").value;
+        const colorBox = document.getElementById("colorbox");
+        colorBox.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
+        const redValue = document.getElementById("red_value");
+        redValue.textContent = red;
+        const blueValue = document.getElementById("blue_value");
+        blueValue.textContent = blue;
+        const greenValue = document.getElementById("green_value");
+        greenValue.textContent = green;
+      }
+    </script>
+  </body>
+</html>
